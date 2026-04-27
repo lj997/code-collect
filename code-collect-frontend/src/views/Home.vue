@@ -74,7 +74,7 @@
               <button 
                 class="snippet-action-btn"
                 :class="{ starred: snippet.starred }"
-                @click="toggleStar(snippet)"
+                @click="handleToggleStar(snippet)"
                 title="收藏"
               >
                 {{ snippet.starred ? '⭐' : '☆' }}
@@ -255,7 +255,7 @@ function resetOtherFilters(exclude) {
   }
 }
 
-async function toggleStar(snippet) {
+async function handleToggleStar(snippet) {
   try {
     await toggleStar(snippet.id)
     snippet.starred = !snippet.starred
