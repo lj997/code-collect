@@ -23,7 +23,7 @@
             <div class="snippet-actions" @click.stop>
               <button 
                 class="snippet-action-btn starred"
-                @click="toggleStar(snippet)"
+                @click="handleToggleStar(snippet)"
                 title="取消收藏"
               >
                 ⭐
@@ -76,7 +76,7 @@ async function fetchSnippets() {
   }
 }
 
-async function toggleStar(snippet) {
+async function handleToggleStar(snippet) {
   try {
     await toggleStar(snippet.id)
     snippets.value = snippets.value.filter(s => s.id !== snippet.id)
